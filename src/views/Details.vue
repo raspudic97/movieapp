@@ -44,7 +44,6 @@ export default {
         `https://api.themoviedb.org/3/movie/${this.exampleProp}?api_key=2b24ba56d7cced960b52aa5d062f497e&language=en-US`
       )
       .then((response) => {
-        console.log(response)
         this.selectedMovie = response.data
 
         this.selectedMoviePoster = `https://image.tmdb.org/t/p/original${this.selectedMovie.poster_path}`; // Poster Path
