@@ -12,8 +12,10 @@
 
           <router-link
             class="buttonLink"
-            :to="{ name: 'Similar', params: { selectedMovieId } }"
-            ><v-btn class="detailsButton">Find Similar Movies</v-btn></router-link
+            :to="{ name: 'Similar', params: { movieId } }"
+            ><v-btn class="detailsButton"
+              >Find Similar Movies</v-btn
+            ></router-link
           >
         </div>
       </div>
@@ -32,7 +34,7 @@ export default {
       selectedMovieTitle: null,
       selectedMovieDesc: null,
       selectedMovieRating: null,
-      selectedMovieId: null,
+      movieId: null,
       selectedMoviePoster: null
     };
   },
@@ -49,7 +51,7 @@ export default {
         this.selectedMovieTitle = this.selectedMovie.title; // Naziv
         this.selectedMovieDesc = this.selectedMovie.overview; // Kratki opis filma 
         this.selectedMovieRating = this.selectedMovie.vote_average; // Ocijena filma
-        this.selectedMovieId = this.selectedMovie.id; // ID filma
+        this.movieId = this.selectedMovie.id; // ID filma
 
         // Background slika za pocetnu stranicu
         const hero = document.querySelector(".hero");

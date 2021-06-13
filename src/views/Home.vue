@@ -12,7 +12,7 @@
 
           <router-link
             class="buttonLink"
-            :to="{ name: 'Similar', params: { randomMovieId } }"
+            :to="{ name: 'Similar', params: { movieId } }"
             ><v-btn class="detailsButton"
               >Find Similar Movies</v-btn
             ></router-link
@@ -32,7 +32,7 @@ export default {
       randomMovieTitle: null,
       randomMovieDesc: null,
       randomMovieRating: null,
-      randomMovieId: null,
+      movieId: null,
       randomPage: null,
     };
   },
@@ -59,7 +59,7 @@ export default {
         this.randomMovieTitle = this.randomMovie.title; // Naziv random filma
         this.randomMovieDesc = this.randomMovie.overview; // Kratki opis filma
         this.randomMovieRating = this.randomMovie.vote_average; // Ocijena filma
-        this.randomMovieId = this.randomMovie.id; // ID filma
+        this.movieId = this.randomMovie.id; // ID filma
 
         // Background slika za pocetnu stranicu
         const hero = document.querySelector(".hero");

@@ -24,7 +24,7 @@
 import MovieCard from "../components/MovieCard.vue";
 export default {
   components: { MovieCard },
-  props: ["randomMovieId"],
+  props: ["movieId"],
   data() {
     return {
       numberOfMovies: null,
@@ -34,7 +34,7 @@ export default {
   created() {
     this.axios
       .get(
-        `https://api.themoviedb.org/3/movie/${this.randomMovieId}/similar?api_key=2b24ba56d7cced960b52aa5d062f497e&page=1`
+        `https://api.themoviedb.org/3/movie/${this.movieId}/similar?api_key=2b24ba56d7cced960b52aa5d062f497e&page=1`
       )
       .then((response) => {
         this.movies = response.data.results;
