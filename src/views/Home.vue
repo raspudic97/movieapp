@@ -6,11 +6,17 @@
         <img :src="randomMoviePoster" alt="" class="moviePoster" />
 
         <div class="movieDetails">
-          <h1 class="movieTitle"> {{ randomMovieTitle }}</h1>
-          <p class="movieDesc"> {{ randomMovieDesc }} </p>
-          <p class="movieRating"> Rating: {{ randomMovieRating}}</p>
+          <h1 class="movieTitle">{{ randomMovieTitle }}</h1>
+          <p class="movieDesc">{{ randomMovieDesc }}</p>
+          <p class="movieRating">Rating: {{ randomMovieRating }}</p>
 
-          <router-link :to="{ name: 'Similar', params: { randomMovieId } }"><v-btn>Find Similar Movies</v-btn></router-link>
+          <router-link
+            class="buttonLink"
+            :to="{ name: 'Similar', params: { randomMovieId } }"
+            ><v-btn class="detailsButton"
+              >Find Similar Movies</v-btn
+            ></router-link
+          >
         </div>
       </div>
     </v-container>
@@ -51,11 +57,9 @@ export default {
         this.randomMovie = response.data.results[randomNumber]; // Generira film nasumično
         this.randomMoviePoster = `https://image.tmdb.org/t/p/original${this.randomMovie.poster_path}`; // Poster Path za random film
         this.randomMovieTitle = this.randomMovie.title; // Naziv random filma
-        this.randomMovieDesc = this.randomMovie.overview; // Kratki opis filma 
+        this.randomMovieDesc = this.randomMovie.overview; // Kratki opis filma
         this.randomMovieRating = this.randomMovie.vote_average; // Ocijena filma
         this.randomMovieId = this.randomMovie.id; // ID filma
-
-        console.log(this.randomMovie);
 
         // Background slika za pocetnu stranicu
         const hero = document.querySelector(".hero");
@@ -107,7 +111,12 @@ export default {
   border-radius: 10px;
 }
 
-h1, p {
+h1,
+p {
   color: white;
+}
+
+.buttonLink {
+  all: unset;
 }
 </style>

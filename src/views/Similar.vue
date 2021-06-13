@@ -1,61 +1,46 @@
 <template>
-  <div class="similarMovies">
-    <v-row class="mb-6" no-gutters dense>
-      <v-col class="ma-4" cols="2" v-for="movie in movies" :key="movie.id">
-        <MovieCard :title="movie.title" :imgSrc="movie.poster_path" />
+  <div class="similarMovies" fill-width>
+    <v-row no-gutters dense>
+      <v-col class="my-4" cols="2" v-for="movie in movies" :key="movie.id">
+        <router-link
+        class="cardLink"
+          :to="{ name: 'Details', params: { exampleProp: movie.id } }"
+        >
+          <MovieCard
+            class="card"
+            :title="movie.title"
+            :imgSrc="movie.poster_path"
+          />
+        </router-link>
       </v-col>
     </v-row>
-
-    <div class="text-center">
-      <v-container>
-        <v-row justify="center">
-          <v-col cols="8">
-            <v-container class="max-width">
-              <v-pagination
-                v-model="pageNumber"
-                class="my-4"
-                :length="totalPages"
-                @change="getData"
-              ></v-pagination>
-            </v-container>
-          </v-col>
-        </v-row>
-      </v-container>
-    </div>
+    <h1 class="noMoviesMessage" v-if="numberOfMovies == 0">
+      Sorry. We could not find any similar movies :(
+    </h1>
   </div>
 </template>
 
 <script>
-import MovieCard from '../components/MovieCard.vue';
+import MovieCard from "../components/MovieCard.vue";
 export default {
   components: { MovieCard },
   props: ["randomMovieId"],
   data() {
     return {
-      pageNumber: 1,
-      totalPages: 10,
+      numberOfMovies: null,
       movies: null,
     };
   },
-  methods: {
-    methodThatForcesUpdate() {
-      console.log(this.pageNumber);
-      this.$forceUpdate();
-    },
-    getData() {
-      this.axios
+  created() {
+    this.axios
       .get(
-        `https://api.themoviedb.org/3/movie/${this.randomMovieId}/similar?api_key=2b24ba56d7cced960b52aa5d062f497e&language=en-US&page=1`
+        `https://api.themoviedb.org/3/movie/${this.randomMovieId}/similar?api_key=2b24ba56d7cced960b52aa5d062f497e&page=1`
       )
       .then((response) => {
         this.movies = response.data.results;
-        this.totalPages = response.data.total_pages;
+        this.numberOfMovies = response.data.results.length;
       });
-  }
   },
-  created() {
-    this.getData();
-  }
 };
 </script>
 
@@ -63,5 +48,29 @@ export default {
 .similarMovies {
   width: 100vw;
   height: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noMoviesMessage {
+  text-align: center;
+  margin: 3rem 0;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.card {
+  cursor: pointer;
+  transition: 0.5s ease;
+}
+
+.card:hover {
+  opacity: 0.7;
+  transition: 0.5s ease;
+}
+
+.cardLink {
+  all: unset;
 }
 </style>

@@ -41,5 +41,6 @@ img {
 .movieTitle {
     text-align: center;
     color: white;
+    text-decoration: none !important; 
 }
 </style>

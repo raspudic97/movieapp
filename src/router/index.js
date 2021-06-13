@@ -11,11 +11,6 @@ const routes = [
     component: Home
   },
   {
-    path: '/latest',
-    name: 'Latest',
-    component: () => import('../views/Latest.vue')
-  },
-  {
     path: '/popular',
     name: 'Popular',
     component: () => import('../views/Popular.vue')
@@ -26,14 +21,21 @@ const routes = [
     component: () => import('../views/TopRated.vue')
   },
   {
-    path: '/recommended',
-    name: 'Recommended',
-    component: () => import('../views/Recommended.vue') 
+    path: '/details',
+    name: 'Details',
+    component: () => import('../views/Details.vue'),
+    props: true
   },
   {
-    path: '/similar/',
+    path: '/similar',
     name: 'Similar',
     component: () => import('../views/Similar.vue'),
+    props: true
+  },
+  {
+    path: '/search',
+    name: 'Search',
+    component: () => import('../views/Search.vue'),
     props: true
   }
 ]

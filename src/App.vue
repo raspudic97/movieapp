@@ -29,4 +29,22 @@ export default {
   padding: 0;
   box-sizing: border-box;
 }
+
+a {
+  all: unset;
+}
+
+.pageTitle {
+  text-align: center;
+  color: rgba(0, 0, 0, 0.7);
+  margin-top: 2rem;
+}
+
+.movieTitle {
+  margin-bottom: 2rem;
+}
+
+.detailsButton {
+  margin-top: 2rem;
+}
 </style>

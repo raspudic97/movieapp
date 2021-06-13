@@ -1,22 +1,19 @@
 <template>
-  <div class="topRatedMovies" fill-width>
-    <h1 class="pageTitle">Top rated movies</h1>
+  <div class="search" fill-width>
+    <div class="searchContainer">
+      <v-responsive max-width="260">
+        <v-text-field
+          dense
+          flat
+          hide-details
+          rounded
+          solo-inverted
+          placeholder="Search..."
+          v-model="searchValue"
+        ></v-text-field>
+      </v-responsive>
 
-    <div class="text-center">
-      <v-container>
-        <v-row justify="center">
-          <v-col cols="8">
-            <v-container class="max-width">
-              <v-pagination
-                v-model="currPage"
-                class="my-4"
-                :length="totalPages"
-                @input="getData"
-              ></v-pagination>
-            </v-container>
-          </v-col>
-        </v-row>
-      </v-container>
+      <v-btn @click="getData">Search</v-btn>
     </div>
 
     <v-row no-gutters dense>
@@ -43,15 +40,14 @@ export default {
   data() {
     return {
       movies: null,
-      currPage: 1,
-      totalPages: 10,
+      searchValue: null,
     };
   },
   methods: {
     getData() {
       this.axios
         .get(
-          `https://api.themoviedb.org/3/movie/top_rated?api_key=2b24ba56d7cced960b52aa5d062f497e&page=${this.currPage}`
+          `https://api.themoviedb.org/3/search/movie?api_key=2b24ba56d7cced960b52aa5d062f497e&language=en-US&query=${this.searchValue}`
         )
         .then((response) => {
           this.movies = response.data.results;
@@ -59,19 +55,24 @@ export default {
         });
     },
   },
-  created() {
-    this.getData();
-  },
 };
 </script>
 
 <style scoped>
-.topRatedMovies {
+.search {
   width: 100vw;
   height: 100%;
   margin: 0 auto;
 }
 
+.searchContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    width: 30%;
+    margin: 2rem auto;
+}
 .card {
   cursor: pointer;
   transition: 0.5s ease;

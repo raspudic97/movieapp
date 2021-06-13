@@ -13,17 +13,6 @@
       </router-link>
 
       <v-spacer></v-spacer>
-
-      <v-responsive max-width="260">
-        <v-text-field
-          dense
-          flat
-          hide-details
-          rounded
-          solo-inverted
-          placeholder="Search..."
-        ></v-text-field>
-      </v-responsive>
     </v-app-bar>
   </nav>
 </template>
@@ -34,10 +23,9 @@ export default {
     return {
       links: [
         { name: "Homepage", path: "/" },
-        { name: "Latest", path: "/latest" },
         { name: "Popular", path: "/popular" },
-        { name: "Top Rated", path: "/top-rated" },
-        { name: "Recommended", path: "/recommended" },
+        { name: "Top Rated", path: "/top-rated"},
+        { name: "Search", path: "/search"}
       ],
     };
   },
