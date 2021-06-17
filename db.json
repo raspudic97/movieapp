@@ -2,21 +2,9 @@
   "feedbacks": [
     {
       "id": 1,
-      "username": "test",
-      "feedback_content": "test",
-      "feedback_title": "test"
-    },
-    {
-      "id": 2,
-      "username": "tesrTE",
-      "feedback_content": "SAFASDASDASDASD",
-      "feedback_title": "SADASDASDASD"
-    },
-    {
-      "id": 3,
-      "username": "username",
-      "feedback_content": "feedback content",
-      "feedback_title": "title"
+      "username": "TestUsername",
+      "feedback_content": "Ovo je testni feedback",
+      "feedback_title": "Ovo je testni naslov"
     }
   ]
 }
