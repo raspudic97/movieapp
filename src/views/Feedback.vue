@@ -47,7 +47,7 @@ export default {
   methods: {
     getData() {
       this.axios
-        .get(`http://localhost:3000/favouriteMovies`)
+        .get(`http://localhost:3000/feedbacks`)
         .then((response) => {
           console.log(response.data);
           this.feedbacks = response.data;
@@ -61,7 +61,7 @@ export default {
         feedback_title: this.feedbackTitle,
       };
 
-      this.axios.post("http://localhost:3000/favouriteMovies", newFeedback);
+      this.axios.post("http://localhost:3000/feedbacks", newFeedback);
 
       this.successAlert = true;
 
