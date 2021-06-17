@@ -49,7 +49,6 @@ export default {
       this.axios
         .get(`http://localhost:3000/feedbacks`)
         .then((response) => {
-          console.log(response.data);
           this.feedbacks = response.data;
         });
     },
