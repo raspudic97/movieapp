@@ -23,10 +23,10 @@
       <p>Da bi feedback stranica bila funkcionalna potrebno je dodati json-server tako što ćete u terminalu napisati <strong>"npm install json-server -g"</strong></p>
 
       <span>4. Pokretanje projekta</span>
-      <p>Da bi pokrenuli projekt potrebno je uraditi 2 stvari:
-           1. Pokrenuti json-server za lokalnu bazu podataka tako što u terminalu pišete <strong> "json-server db.json" </strong>
+      <p>Da bi pokrenuli projekt potrebno je uraditi 2 stvari: <br><br>
+           1. Pokrenuti json-server za lokalnu bazu podataka tako što u terminalu pišete <strong> "json-server db.json" </strong><br><br>
 
-           2. Pokrenuti projekt tako što u terminalu pišete <strong> "npm run serve" </strong>
+           2. Pokrenuti projekt tako što u terminalu pišete <strong> "npm run serve" </strong><br>
               - Ctrl + lijevi klik na link će otvoriti projekt u zadanom web browseru
       </p>
   </div>
@@ -61,5 +61,6 @@ h1 {
 
 .about {
     text-align: center;
+    padding: 0;
 }
 </style>
