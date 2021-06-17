@@ -20,7 +20,15 @@
     </div>
 
     <v-row no-gutters dense>
-      <v-col class="my-4" cols="2" v-for="movie in movies" :key="movie.id">
+      <v-col
+        class="my-4"
+        cols="12"
+        v-for="movie in movies"
+        :key="movie.id"
+        lg="2"
+        md="3"
+        sm="12"
+      >
         <router-link
           class="cardLink"
           :to="{ name: 'Details', params: { exampleProp: movie.id } }"

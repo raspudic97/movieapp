@@ -119,4 +119,26 @@ p {
 .buttonLink {
   all: unset;
 }
+
+@media only screen and (max-width: 800px) {
+  .movieInfo {
+    flex-direction: column;
+    margin: 2rem 0;
+  }
+
+  .movieDetails {
+    margin: 2rem 0;
+    align-items: center;
+  }
+
+  .hero {
+    height: auto;
+    overflow: visible;
+  }
+
+  h1,
+  p {
+    text-align: center;
+  }
+}
 </style>
