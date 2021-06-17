@@ -50,7 +50,6 @@ span {
 }
 
 p {
-    padding-left: 2rem;
     text-align: center;
 }
 
